@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view> -->
+    <view class="usermotto">
+    <navigator url="../text/text" open-type="navigate">
+      <text class="user-motto">This is the first page</text>
+    </navigator>
+  </view>
+  <view class="usermotto">
+    <navigator url="../xg/xg" open-type="navigate">
+      <text class="user-motto">{{motto}}</text>
+    </navigator>
+  </view>
+  <view class="usermotto">
+    <navigator url="../hmr/hmr" open-type="navigate">
+        <text class="user-motto">{{myfirst}}</text>
+    </navigator>
+  </view>
+</view>

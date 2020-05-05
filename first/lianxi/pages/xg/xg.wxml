@@ -1,0 +1,12 @@
+<!--pages/xg/xg.wxml-->
+<text>pages/xg/xg.wxml</text>
+<view>This is page third</view>
+<view class="first">
+  <view> <image src="../images/xg.jpg" mode="ascaleToFill"> </image></view>
+  <view class="second">
+  郁金香（学名：Tulipa gesnerianaL.）是百合科郁金香属的多年生草本植物，郁金香原产于土耳其，是土耳其、荷兰、匈牙利等国的国花。
+</view>
+</view>
+<view>
+  <text>叶3-5枚，条状披针形至卵状披针状，花单朵顶生，大型而艳丽，花被片红色或杂有白色和黄色，有时为白色或黄色，长5-7厘米，宽2-4厘米，6枚雄蕊等长，花丝无毛，无花柱，柱头增大呈鸡冠状，花期4-5月。</text>
+</view>

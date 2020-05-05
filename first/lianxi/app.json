@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/text/text",
+    "pages/xg/xg",
+    "pages/hmr/hmr",
+    "pages/about/about"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#abc",
+    "navigationBarTitleText": "农 家 园",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#a5b",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "pages/images/first.png",
+      "selectedIconPath": "pages/images/first.png"
+    },
+    {
+      "pagePath": "pages/about/about",
+      "text": "关于我们",
+      "iconPath": "pages/images/first.png",
+      "selectedIconPath": "pages/images/first.png"
+    }]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

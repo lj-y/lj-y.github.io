@@ -1,0 +1,12 @@
+<!--pages/about/about.wxml-->
+
+<view class="first">
+  <view><image src="../images/hmr.jpg" mode="ascaleToFill"></image> </view>
+  <view>
+  农家园是一家从事自产自销农产品的个体经营户，
+主要类型有：
+食用真菌，
+  包括香菇、黑木耳、平菇。
+花卉苗木 富贵竹、郁金香、金桔。
+农家土产品 鸡蛋、鸭蛋。</view>
+</view>

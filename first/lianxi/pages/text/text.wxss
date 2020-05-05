@@ -1,0 +1,12 @@
+/* pages/text/text.wxss */
+page{ background-color: #aaa;}
+text, view{
+  margin: 20rpx;
+
+
+}
+.first{
+  /* background-color: #5ab; */
+  text-align: center;
+
+}
