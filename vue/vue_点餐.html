@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta {name="vie,price:'5',count:1},port" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">  
+<script src="\lib\jquery\jquery.js"></script>
+<script src="\lib\bootstrap\js\bootstrap.min.js"></script>
+<!-- <script src="\lib\vue.global.js"></script> -->
+<script src="\lib\vue\vue.min.js"></script>
+<!-- <script src="\lib\vue-router.global.js"></script> -->
+<!-- <script src="\lib\axios.min.js"></script> -->
+<title>Vue购物车</title>
+<style>
+      *{
+        margin: 0;
+        padding: 0;
+     }
+      body{
+        font-size: 30px;
+        /*height:800px;*/
+     }
+      .menu{
+        float: left;
+        background-color: #aaa;
+        width: 20%;
+        height:667px;
+    }
+    li{
+      text-align: left;
+      list-style-type: none;
+      border: 0px solid blue;
+      margin-top: 10px;
+      margin-left: 10px;
+      width: 80%;
+    }
+    .main{
+      font-size: 15px;
+      font: left;
+    }
+    img{
+      display: inline-block;
+      margin-left: 15px;
+    }
+    .main{
+        font-size: 20px;
+    }
+    .info{
+        display: inline-block; 
+        vertical-align: bottom;
+        text-align: left;
+    }
+
+    footer{
+      height: 30px;
+      background-color: blue;
+      color: white;
+      text-align: center;
+      line-height: 30px;
+    }
+
+    .choose{
+      display: inline-block;
+    }
+
+    .choose>a{
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      background-color: #bbaa66;
+      text-align: center;
+      line-height: 20px;
+    }
+
+    b{
+      color: #bbaa66;
+    }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div class="layout">
+      <!-- 左侧菜单 -->
+      <div class="menu">
+        <ul>
+          <li v-for = "(v,index) in items" :key="v.id" @click="getList(v.id)">
+            <a>{{ v.name }}</a>
+          <!-- <span v-show="v.count>0">{{ v.count}}</span> -->
+          </li>
+        </ul>
+      </div>
+      <!-- 右侧菜品展示 -->
+      <div class="main">
+            <p>菜品</p>
+            <ul>
+              <li  v-for ='(val,index) in nlist' :key='val.id'>
+                <img :src='val.img'  width="100" height="100" />
+                <div class="info">
+                    <lable>{{val.name}}</lable>
+                    <div>月售1234｜好评度 90%</div>
+                    <lable>
+                        <b>￥{{val.price}}</b>
+                        <lable class="choose">
+                          <a> - </a><span>5</span><a> + </a>
+                        </lable>
+                    </lable>
+                </div>
+              </li>
+            </ul>
+      </div>
+      <footer class="navbar-fixed-bottom">共3份，300</footer>
+  </div>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      nlist:'',
+      items: [
+        { name: '主食',price:3,count:2,url:'',id:1,},
+        { name: '凉菜',price:3,count:1,url:'',id:2,},
+        { name: '川菜',price:3,count:2,url:'',id:3 },
+        { name: '湘菜',price:5,count:3,url:'',id:4 },
+        { name: '鄂菜',price:3,count:2,url:'',id:5 },
+        { name: '蒸菜',price:8,count:2,url:'',id:6},
+        { name: '煲汤',price:8,count:2,url:'',id:7 },
+        { name: '面点',price:8,count:2,url:'',id:8 },
+        { name: '酒水',price:8,count:2,url:'',id:9 },
+      ],
+      lists1: [
+              {id:0,name:'米饭',pid:1,price:2,img:'/lib/images/fj01.jpg'},
+              {id:1,name:'花券',pid:1,price:2.5,img:'/lib/images/fj02.jpg'},
+              {id:2,name:'包子',pid:1,price:1.5,img:'/lib/images/fj03.jpg'},
+              {id:3,name:'精粮',pid:1,price:2,img:'/lib/images/hua02.jpg'},
+              {id:4,name:'面包',pid:1,price:2.5,img:'/lib/images/hua03.jpg'} ,
+              {id:6,name:'liangcai_01',pid:2,price:2,img:'/lib/images/fj01.jpg'},
+              {id:7,name:'liangcai_02',pid:2,price:2.5,img:'/lib/images/fj02.jpg'},
+              {id:8,name:'liangcai_03',pid:2,price:1.5,img:'/lib/images/fj03.jpg'},
+              {id:9,name:'liangcai_04',pid:2,price:2,img:'/lib/images/hua02.jpg'},
+              {id:10,name:'liangcai_05',pid:2,price:2.5,img:'/lib/images/hua03.jpg'},
+              {id:11,name:'chuancaiA',pid:3,price:2,img:'/lib/images/fj01.jpg'},
+              {id:12,name:'chuancaiB',pid:3,price:2.5,img:'/lib/images/fj02.jpg'},
+              {id:13,name:'chuancaiC',pid:3,price:1.5,img:'/lib/images/fj03.jpg'},
+              {id:13,name:'chuancaiD',pid:3,price:1.5,img:'/lib/images/fj03.jpg'},
+              {id:14,name:'xiangcaiA',pid:4,price:2,img:'/lib/images/hua02.jpg'},
+              {id:15,name:'xiangcaiB',pid:4,price:2.5,img:'/lib/images/hua03.jpg'},
+              {id:15,name:'xiangcaiC',pid:4,price:2.5,img:'/lib/images/hua03.jpg'},
+              {id:15,name:'xiangcaiD',pid:4,price:2.5,img:'/lib/images/hua03.jpg'},
+              {id:15,name:'xiangcaiE',pid:4,price:2.5,img:'/lib/images/hua03.jpg'}
+              
+      ]
+    }, //data
+    mounted(){ window.vue = this },
+    methods: {
+      getList(id){
+        this.nlist= this.lists1.filter(item=>item.pid==id);
+      },
+    },
+  });
+  vue.getList(1);
+</script>
+</body>
+</html>

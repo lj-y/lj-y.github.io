@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例 - Hello Vue.js</title>
+<script src="/lib/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+  <sapn>返回data:</span>
+	<span>site:{{site}}</span>
+	<span>url:{{url}}</span>
+	<span>alexa:{{alexa}}</span>
+  <sapn>返回函数值:</span>
+	<p>{{details()}}</p>
+  <br>
+  常用命令: 
+  <p>
+    1. data message  
+  </p>
+  <p>
+    2.v-model input  
+    
+  </p>
+  <p>
+    3. bind href
+    
+  </p>
+  <br>
+
+  <p>安装nodejs</p>
+  <p> 安装vue-cli 新版本 npm i -g @vue/cli</p>
+  <p>  查看有哪些版本 npm info @vue/cli versions</p>
+  <p>  创建项目 vue create demo</p>
+  <p>npm i 恢复 node_modules</p>
+  <p>npm run serve</p>
+  <p>代码写好了  npm run build</p>
+  
+
+
+
+</div>
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    site: 'IE99网站',
+    url: 'jie99.cn',
+    alexa: "10000"
+  },
+  methods:{
+  		details:function(){
+  			return this.site + "-学的不仅是技术,更是梦想!";
+  		}
+  }
+})
+</script>
+</body>
+</html>

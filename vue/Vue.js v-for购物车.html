@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">  
+<script src="/lib/jquery/jquery.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/lib/vue/vue.min.js"></script>
+<title>Vue购物车</title>
+<style>
+  th{
+    width: 150px;
+  }
+  .form-control{ 
+    display: inline-block; 
+    width: 150px;
+    vertical-align: bottom;
+  }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div class="shopcart">
+        <div class="panel panel-success" style="margin:20px;">
+            <!-- 头部 -->
+            <div class="panel-heading">
+              <h1>Vue测试监查询购物车数量及金额变化</h1>
+            </div>
+            <div class="panel-body">
+              <div class="input-group-btn">
+                  <span><a class="btn btn-success" >名称搜索</a></span>
+                  <input type="text"  v-model="input" class="form-control" placeholder="请输入查询内容" />
+              </div>
+            </div>
+            <!-- 内容 -->
+            <div class="panel-body">
+              <table class="table table-condensed">
+                  <thead>
+                    <th>图片</th>
+                    <th>商品名称</th>
+                    <th>商品数量</th>
+                    <th>商品单价</th>
+                    <th>商品金额</th>
+                    <th>操作</th>
+                  </thead>
+                  <tbody>
+                      <tr v-for="(v,i) in searchData" :key="i">
+                          <td><img src="" alt=""></td>
+                          <td>{{ v.name }}</td>
+                          <td>
+                              <button :disabled="v.count==0" @click="v.count-=1">-</button>    
+                                {{ v.count }}
+                              <button @click="v.count+=1">+</button>    
+                          </td>
+                          <td>{{ v.price }}</td>
+                          <td>{{ v.price * v.count}}</td>
+                          <td><button type="button" class="btn btn-success btn-sm">商品详情</button></td>
+                      </tr>
+                      <tr>
+                        <td colspan="6">{{ totalCount  }}件商品总计：￥{{ totalPrice }}元</td>
+                      </tr>
+                    </tbody>
+              </table>
+            </div>
+          </div>
+  </div>
+  
+</div>
+ 
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    input:'',
+    items: [
+      { name: '南方苹果',price:3,count:2,url:'' },
+      { name: '火龙果',price:3,count:1,url:'' },
+      { name: '梨子',price:3,count:2,url:'' },
+      { name: '香蕉',price:5,count:3,url:'' },
+      { name: '桔子',price:3,count:2,url:'' },
+      { name: '红富士苹果',price:8,count:2,url:'' },
+      { name: '车厘子',price:8,count:2,url:'' },
+    ]
+  },
+  filters:{
+    priceFilter(data,n){
+        return '￥'+data.toFixed(n);
+    }
+  },
+  computed:{
+    searchData(){
+      if(!this.input) return this.items;
+      // return this.items.filter(item=>item.name.indexOf(this.input) != -1);
+      return this.items.filter(item=>item.name.includes(this.input));
+    },
+    totalCount(){
+        return this.searchData.reduce((total,cur)=>total+cur.count,0);
+        // var n = 0;
+        // this.items.forEach(function(item){
+        //   n+=item.count
+        // });
+        // return n;
+    },
+    totalPrice(){
+      return this.searchData.reduce((total,cur)=>total+cur.price*cur.count,0);
+    }
+  }
+
+})
+</script>
+</body>
+</html>
