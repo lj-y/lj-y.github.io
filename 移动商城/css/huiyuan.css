@@ -1,0 +1,102 @@
+.yonghu {
+	display: flex;
+	padding: 5px;
+	background-color: #FF0000;
+}
+
+.yonghu_touxiang {
+	padding: 10px;
+}
+
+.yonghu_touxiang_img {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	box-shadow: 2px 2px 2px #F2F2F2;
+	border: 1px solid white;
+}
+
+.yonghu_xinxi {
+	padding: 5px;
+	color: white;
+	margin-top: 10px;
+}
+
+.yonghu_xinxi_nicheng {}
+
+.yonghu_xinxi_dengji {}
+
+.yonghu_xinxi_shouji {}
+
+/* 我的订单 */
+.daohang {
+	display: flex;
+	align-items: center;
+	padding: 5px;
+	border-bottom: 1px solid #E6E6E6;
+}
+
+.daohang_img {
+	width: 16px;
+	height: 16px;
+	align-items: center;
+	margin-right: 5px;
+}
+
+.daohang_biaoti {
+	flex-grow: 1;
+}
+
+.daohang_you {}
+/* 全部订单 */
+.dingdan{display: flex;
+	justify-content: space-around;
+}
+.dingdan_xiangmu{
+	align-items: center;
+	padding: 5px;
+	position: relative;
+}
+.dingdan_xiangmu_img{ width: 10px; height: 10px;}
+.dingdan_xiangmu_biaoti{ font-size: 13px;}
+	
+	/* 四个图样式切图调整 */
+.dingdan_xiangmu_1{
+	margin-top: 5px;
+}
+
+.dingdan_xiangmu_2{
+	margin-top: -3px;
+}
+
+.dingdan_xiangmu_4{
+	margin-top: 3px;
+}
+.dingdan_xiangmu_tishi{
+	background-color: red;color: white;
+	width: 14px;height: 14px;border-radius: 50%;
+	padding: 1px;text-align: center;line-height: 14px;
+	position: absolute;
+	bottom: 40px;
+	left: 35px;
+}
+
+/* 导航2 */
+.daohang2{
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	border: 1px solid #E6E6E6;
+}
+.daohang2_img{
+	width: 15px;height: 15px;
+	margin-right: 5px;
+}
+.daohang2_biaoti{
+	flex-grow: 1;
+	font-size: 15px;
+}
+.daohang2_you{
+	width: 15px;height: 15px;
+	
+}
