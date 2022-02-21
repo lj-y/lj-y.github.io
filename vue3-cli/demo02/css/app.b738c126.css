@@ -1,0 +1,1 @@
+.content,.header,.nav{padding:15px}.header{height:80px;border:1px solid red;background-color:bisque}.container{display:flex}.container .nav{flex:1;height:800px;border:1px solid blue;background-color:#5f9ea0}.container .content{flex:5;height:800px;border:1px solid green}.content{background-color:#6495ed}
