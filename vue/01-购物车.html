@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01my-demo</title>
+</head>
+<body>
+    <div id="root">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>商品名称</th>
+                    <th>价格</th>
+                    <th>数量</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-is="'mylist'" v-for="(item,index) in lists" :data="item" @add="handleAdd(index)"
+                    @sub="handleSub(index)"></tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <th>总价</th>
+                    <th>{{total}}</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+<script src="/lib/vue/vue.global.js"></script>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                lists: [
+                    { id: '1', name: '小米手机', price: 1000, count: 1 },
+                    { id: '2', name: '小米电脑', price: 1000 + 100, count: 1 },
+                    { id: '3', name: '红米手机', price: 1000 + 200, count: 1 },
+                    { id: '4', name: '红米电脑', price: 1000 + 300, count: 1 },
+                    { id: '5', name: '苹果电脑', price: 1000 + 500, count: 1 },
+                ]
+            }
+        },
+        methods: {
+            handleAdd(index) {
+                this.lists[index].count++
+            },
+            handleSub(index) {
+                this.lists[index].count--
+            }
+        },
+        computed: {
+            total() {
+                return this.lists.reduce((totally, item) => {
+                    return totally + item.price * item.count
+                }, 0)
+            }
+        }
+    })
+    app.component('mylist', {
+        props: {
+            data: {
+                type: Object,
+            }
+        },
+        template: `
+            <tr>
+                <td>{{data.id}}</td>
+                <td>{{data.name}}</td>
+                <td>{{data.price}}</td>
+                <td>
+                    <button @click="descrement" :disabled="data.count<=1">-</button>
+                    {{data.count}}
+                    <button @click="increment">+</button>
+                </td>
+            </tr>
+        `,
+        methods: {
+            descrement() {
+                this.$emit('sub')
+            },
+            increment() {
+                this.$emit('add')
+            }
+        }
+    })
+    const vm = app.mount('#root')
+</script>
+</html>
