@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 计数器</title>
+ <script src="/lib/vue/vue.global.js"></script>
+</head>
+<body>
+<div id="app">  Counter: {{ counter }}</div>
+<script>
+  const app = Vue.createApp({
+  data() {
+    return { counter: 0}
+  },
+  mounted() {
+             setInterval(() => {  this.counter ++  }
+              , 1000)
+  }
+})
+app.mount('#app')
+</script>
+</body>
+</html>
