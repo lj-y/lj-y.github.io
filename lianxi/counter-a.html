@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 计数器</title>
+<script src="/lib/vue/vue.global.js"></script> 
+</head>
+<body>
+<div id = "app">
+    <p style = "font-size:25px;">计数器 : {{ counter }}</p>
+    <button @click = "counter++" style = "font-size:25px;">点我</button>
+</div>
+ <script>
+const app = {
+  data() {
+    return {
+      counter: 1
+    }
+  }
+}
+vm = Vue.createApp(app).mount('#app')
+vm.$watch('counter', function(nval, oval) {
+    alert('计数器值的变化 :' + oval + ' 变为 ' + nval + '!');
+});
+</script>
+</body>
+</html>
