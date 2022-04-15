@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>字符串模板</title>
+</head>
+<body>
+<div id="text"></div>
+<script>
+var obj =  {   
+title: '疫情解封',
+content: '今天心情很爽，疫情解封，结束频繁的核酸检测.' ,
+address: '海口市',
+date: '2022年4月13日'
+}
+var text = document.getElementById("text");
+var str1 =  `<h1>${obj.title}</h1><p>${obj.content}</p>
+<p>${obj.address}</p><p>${obj.date}</p>`;
+text.innerHTML=str1;
+</script>
+</body>
+</html>
