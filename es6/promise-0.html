@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="/lib/axios.js"></script>
+<title>setimeout</title>
+</head>
+<body>
+<script type="text/javascript">
+setTimeout(()=>{
+      console.log('??1????')
+      setTimeout(()=>{
+          //?2?????
+           console.log('???2????')
+           setTimeout(()=>{
+              //?3?????
+               console.log('???3????')
+            },3000)
+       },2000)
+},1000)
+</script>
+</body>
+</html>
