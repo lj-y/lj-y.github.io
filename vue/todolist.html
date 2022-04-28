@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- 开发环境版本 -->
+    <script src="/lib/vue/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+   <input type="text" v-model="newitem"> <button @click="addNetItem">添加</button>
+   <hr/>
+   <ul>
+     <li v-for="(item,index) in items">
+     <a href="javascript:;" @click="upItem(index)">↑</a>
+      <span>{{item}}</span> 
+      <a href="javascript:;" @click="downItem(index)">↓</a>
+      <a href="javascript:;" @click="deleteItem(index)">删除</a>
+     </li>
+   </ul>
+</div>
+</body>
+<script type="text/javascript">
+var app = new Vue({
+  el: '#app',
+  data: {
+      items:['学习Vue','学习Django基础','学习Django前台'],
+      newitem:'',
+  },
+  methods:{
+      addNetItem:function(){
+        this.items.push(this.newitem);
+        this.newitem='';
+      },
+      deleteItem:function(index){
+        this.items.splice(index,1);
+      },
+      upItem:function(index){
+          current=this.items[index];
+          this.items.splice(index,1);
+          this.items.splice(index-1,0,current);
+      },
+      downItem:function(index){
+          current=this.items[index];
+          this.items.splice(index,1);
+          this.items.splice(index+1,0,current);
+      }
+  }
+})
+</script>
+</html>
