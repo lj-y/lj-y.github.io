@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Html5案例总结</title>
+<script src="\lib\vue\vue.min.js"></script>
+<!-- 引入样式 -->
+<!--<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">-->
+<link rel="stylesheet" href="/lib/vue/ui/index.css">
+<!-- 引入组件库 -->
+<!--<script src="https://unpkg.com/element-ui/lib/index.js"></script>-->
+<script src="/lib/vue/ui/index.js"></script>
+<style>
+input{margin:5px 0; width:100%; padding-left:5px;}
+</style>
+</head>
+<body>
+<div id="app">
+<form action="">
+<fieldset>
+	<legend>学生档案</legend>
+	<label for="name" >姓名</label>
+	<input type="text" id="name" placeholder="请输入姓名"/ >
+	<label for="tel">手机号</label>
+	<input type="tel" id="tel"  pattern="^1\d{10}$"  required>
+	<label for="score" >入学成绩</label>
+	<input  id="core" type="number" max="100"  min="0" value="91" / >
+	<label for="core" >基础水平</label>
+	<meter max="100"  min="0" value="21"  id="level" heigh="90" low="75"></meter>
+	
+    <input  list="lesson" placeholder="选择课程">
+    <datalist id="lesson" name="lesson">
+	     <option value="vue"></option>
+	     <option value="c"></option>
+	     <option value="php"></option>
+    </datalist>
+	<label for="indate">入学日期</label>
+	<input type="date" id="indate" >
+	<label for="outdate">毕业日期</label>
+	<input type="date" id="outdate" >
+	<input type="submit" value="提交">
+</fieldset>
+</form>
+</div>
+<script>
+ document.getElementById("core").oninput = function(){
+         document.getElementById("level").value = this.value
+   
+   }
+   /**
+    new Vue({
+      el: '#app',
+      data: function() { }
+    })
+    **/
+  </script>
+</body>
+</html>
