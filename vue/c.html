@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>Vue 组件 </title>
+<script src="\lib\vue\vue.min.js"></script>
+</head>
+<body>
+<div id="app">  
+    	c.html
+    <div>父组件包含子组件的问见d页面</div>
+    <div>页面包含两个并列的组件</div>
+    <my-par></my-par>
+    <my-son></my-son>
+</div> 
+<template id="my-par">   
+  <div> 
+       <div>我是父组件 </div>
+       <my-son></my-son>
+  </div>
+</template>
+<template id="my-son">   
+  <div>我是子组件</div>
+</template>
+<script>
+	 let MyPar = {
+      template: "#my-par",
+    };
+     let MySon = {
+      template: "#my-son",
+    };
+
+    const vm = new Vue({  
+        el:'#app',  
+        data:{
+        },
+        components: {   
+         'my-par': MyPar,
+         'my-son': MySon
+       }
+    })
+</script>
+</body>
+</html>
