@@ -1,1 +1,180 @@
-aa
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="referrer" content="no-referrer" charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.8&key=041aa35d3f462a51be0361b0ea49eed4">
+		</script>
+		<style>
+			#wrapper {
+				width: 600px;
+				height: 600px;
+				margin: 0 auto;
+				margin-top: 50px;
+			}
+
+			.chygch {
+				padding: 3px;
+				background: #aaa;
+				font-size: 10px;
+				color: blue;
+				border-radius: 5px;
+			}
+
+			.xinghuahu {
+				height: 50px;
+				display: flex;
+				padding: 2px;
+				background: #aaa;
+				font-size: 10px;
+				color: blue;
+				border-radius: 5px;
+			}
+
+			img {
+				height: 50px;
+				border-radius: 4px;
+			}
+
+			.xhhcontent {
+				/* padding-left: 2px; */
+			}
+
+			hr {
+				color: azure;
+				width: 95%;
+			}
+			.main{
+				margin: 0 auto;
+				/* border: 1px solid #565601; */
+				width: 45%;
+				
+			}
+
+			.btn {
+				float: left;
+				right: 10px;
+				margin-top: 100px;
+				/* margin-right: 350px; */
+				/* border: 1px solid blue; */
+				/* justify-content: center; */
+			}
+			button{
+				margin-top: 5px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<!-- <div class="btn"> -->
+				<!-- <div><button onclick="toolbar.show()">显示</button></div> -->
+				<!-- <div><button onclick="toolbar.hide()">隐藏</button></div> -->
+			<!-- </div> -->
+			<div id="wrapper" onclick="closeinfowindows()" class="map">
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			var map = new AMap.Map('wrapper', {
+				zoom: 8,
+				//地图显示中心点坐标，如果没有center属性，则会定位到你当前所处的位置
+				icon: "",
+				center: [114.75, 31.01]
+				// viewMode:'3D'
+			});
+			//异步加载工具条插件
+			// AMap.plugin("AMap.ToolBar", function() {});
+			//在回调函数中实例化插件
+			// var toolbar = new AMap.ToolBar(); //创建工具条插件实例
+			// map.addControl(toolbar); //添加工具条插件到页面
+			var marker1 = new AMap.Marker({
+				position: [114.7550, 31.0135],
+			})
+			var marker2 = new AMap.Marker({
+				position: [114.73451, 31.0355],
+			})
+			var marker3 = new AMap.Marker({
+				position: [114.76035, 30.97055],
+				title: '道达尔能源新洲凤凰加油站',
+				// anchor:'top-right'
+			})
+
+			//创建 AMap.Icon 实例：
+			const icons = new AMap.Icon({
+			  size: new AMap.Size(25, 34), //图标尺寸
+			  image: "//a.amap.com/jsapi_demos/static/demo-center/icons/dir-marker.png", //Icon 的图像
+			  imageOffset: new AMap.Pixel(-9, -3), //图像相对展示区域的偏移量，适于雪碧图等
+			  imageSize: new AMap.Size(135, 40), //根据所设置的大小拉伸或压缩图片
+			});
+			const icone = new AMap.Icon({
+			  size: new AMap.Size(25, 34), //图标尺寸
+			  image: "//a.amap.com/jsapi_demos/static/demo-center/icons/dir-marker.png", //Icon 的图像
+			  // imageOffset: new AMap.Pixel(-95, -3), 
+			  //图像相对展示区域的偏移量，适于雪碧图等
+			  imageOffset: new AMap.Pixel(-95, -3), //图像相对展示区域的偏移量，适于雪碧图等
+			  imageSize: new AMap.Size(135, 40), //根据所设置的大小拉伸或压缩图片
+			});
+			// 将 Icon 实例添加到 marker 上:
+			const markerstart = new AMap.Marker({
+			  position: new AMap.LngLat(114.76035, 30.97055), //点标记的位置
+			  offset: new AMap.Pixel(-13, -30), //偏移量
+			  icon: icons, //添加 Icon 实例
+			  title: "道达尔能源新洲凤凰加油站",
+			  zooms: [2, 12], //点标记显示的层级范围，超过范围不显示
+			});
+			const markerend = new AMap.Marker({
+			  position: new AMap.LngLat(114.085382,30.454567), //点标记的位置
+			  offset: new AMap.Pixel(-13, -30), //偏移量
+			  icon: icone, //添加 Icon 实例
+			  title: "东风大道高架",
+			  zooms: [2, 12], //点标记显示的层级范围，超过范围不显示
+			});
+
+
+			
+			// map.add(marker);
+
+			var markerList = [marker1, marker2, markerstart,markerend];
+
+			map.add(markerList);
+			// map.add(marker1);
+
+			//添加到地图
+
+			var info1Window = new AMap.InfoWindow({ //创建信息窗体
+				isCustom: true, //使用自定义窗体
+				content: '<div class="chygch">古建筑东坡街 新时代朝阳广场<br>渡假旅游，休闲住宿</div>', //信息窗体的内容可以是任意html片段
+				offset: new AMap.Pixel(65, -15)
+			});
+			var info2Window = new AMap.InfoWindow({ //创建信息窗体
+				isCustom: true, //使用自定义窗体
+				content: '<div class="xinghuahu"><a href="https://gitee.com/i_wh/document/raw/master/images/xhc02.jpg" target="_blank"><img  src="https://gitee.com/i_wh/document/raw/master/images/xhc02.jpg"  /></a><div class="xhhcontent">杏花湖渡假村<br>渡假旅游，休闲住宿<hr>联系手机: <a href="tel:135****1826">135****1826</a></div></div>',
+				offset: new AMap.Pixel(-95, -25)
+			});
+
+			var onMarker1Click = function(e) {
+				console.log(e.target)
+				info1Window.open(map, e.target.getPosition()); //打开信息窗体
+				//e.target就是被点击的Marker
+			}
+
+			var onMarker2Click = function(e) {
+				console.log(e)
+				info2Window.open(map, e.target.getPosition());
+				//e.target就是被点击的Marker
+			}
+
+			function closeinfowindows() {
+				info1Window.close()
+				info2Window.close()
+
+			}
+
+			marker1.on('click', onMarker1Click); //绑定click事件
+			marker2.on('click', onMarker2Click);
+		</script>
+
+	</body>
+</html>
