@@ -25,11 +25,14 @@
 			.xinghuahu {
 				height: 50px;
 				display: flex;
+				align-items: flex-end;
 				padding: 2px;
 				background: #aaa;
 				font-size: 10px;
 				color: blue;
 				border-radius: 5px;
+				
+
 			}
 
 			img {
@@ -38,7 +41,8 @@
 			}
 
 			.xhhcontent {
-				/* padding-left: 2px; */
+				 padding-left: 2px; 
+				 vertical-align: text-bottom;
 			}
 
 			hr {
@@ -139,19 +143,26 @@
 			var markerList = [marker1, marker2, markerstart,markerend];
 
 			map.add(markerList);
-			// map.add(marker1);
 
 			//添加到地图
 
 			var info1Window = new AMap.InfoWindow({ //创建信息窗体
 				isCustom: true, //使用自定义窗体
-				content: '<div class="chygch">古建筑东坡街 新时代朝阳广场<br>渡假旅游，休闲住宿</div>', //信息窗体的内容可以是任意html片段
-				offset: new AMap.Pixel(65, -15)
+				// content: '<div class="chygch">古建筑东坡街 新时代朝阳广场<br>渡假旅游，休闲住宿</div>', 
+				content: '<div class="xinghuahu"><a href="https://gitee.com/i_wh/document/raw/master/images/朝阳新街.jpg" target="_blank"><img  src="https://gitee.com/i_wh/document/raw/master/images/朝阳新街.jpg"  /></a><div class="xhhcontent">古建筑东坡街 <br>新时代朝阳广场<hr>渡假旅游，休闲住宿</div></div>',
+				//信息窗体的内容可以是任意html片段
+				// offset: new AMap.Pixel(65, -15)
 			});
 			var info2Window = new AMap.InfoWindow({ //创建信息窗体
 				isCustom: true, //使用自定义窗体
-				content: '<div class="xinghuahu"><a href="https://gitee.com/i_wh/document/raw/master/images/xhc02.jpg" target="_blank"><img  src="https://gitee.com/i_wh/document/raw/master/images/xhc02.jpg"  /></a><div class="xhhcontent">杏花湖渡假村<br>渡假旅游，休闲住宿<hr>联系手机: <a href="tel:135****1826">135****1826</a></div></div>',
-				offset: new AMap.Pixel(-95, -25)
+				content: '<div class="xinghuahu"><a href="https://gitee.com/i_wh/document/raw/master/images/杏花村停车场.jpg" target="_blank"><img  src="https://gitee.com/i_wh/document/raw/master/images/杏花村停车场.jpg"  /></a><div class="xhhcontent">杏花湖渡假村<br>渡假旅游，休闲住宿<hr>联系手机: <a href="tel:135****1826">135****1826</a></div></div>',
+				// offset: new AMap.Pixel(-95, -25)
+			});
+
+			var info3Window = new AMap.InfoWindow({ //创建信息窗体
+				isCustom: true, //使用自定义窗体
+				content: '<div class="xinghuahu"><a href="https://gitee.com/i_wh/document/raw/master/images/凤凰加油站.jpg" target="_blank"><img  src="https://gitee.com/i_wh/document/raw/master/images/凤凰加油站.jpg"  /></a><div class="xhhcontent">道达尔能源新洲凤凰加油站<hr>联系手机: <a href="tel:135****1826">135******18</a></div>',
+				// offset: new AMap.Pixel(-95, -25)
 			});
 
 			var onMarker1Click = function(e) {
@@ -166,14 +177,22 @@
 				//e.target就是被点击的Marker
 			}
 
+			var onMarker3Click = function(e) {
+				console.log(e)
+				info3Window.open(map, e.target.getPosition());
+				//e.target就是被点击的Marker
+			}
+
+
 			function closeinfowindows() {
 				info1Window.close()
 				info2Window.close()
-
+				info3Window.close()
 			}
 
 			marker1.on('click', onMarker1Click); //绑定click事件
 			marker2.on('click', onMarker2Click);
+			markerstart.on('click', onMarker3Click);
 		</script>
 
 	</body>
