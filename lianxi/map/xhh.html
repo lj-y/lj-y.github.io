@@ -4,8 +4,7 @@
 		<meta name="referrer" content="no-referrer" charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Document</title>
-		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.8&key=041aa35d3f462a51be0361b0ea49eed4">
-		</script>
+		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.8&key=041aa35d3f462a51be0361b0ea49eed4"></script>
 		<style>
 			#wrapper {
 				width: 600px;
@@ -86,24 +85,18 @@
 				//地图显示中心点坐标，如果没有center属性，则会定位到你当前所处的位置
 				icon: "",
 				center: [114.75, 31.01]
-				// viewMode:'3D'
 			});
-			//异步加载工具条插件
-			// AMap.plugin("AMap.ToolBar", function() {});
-			//在回调函数中实例化插件
-			// var toolbar = new AMap.ToolBar(); //创建工具条插件实例
-			// map.addControl(toolbar); //添加工具条插件到页面
 			var marker1 = new AMap.Marker({
-				position: [114.7550, 31.0135],
-			})
-			var marker2 = new AMap.Marker({
 				position: [114.73451, 31.0355],
 			})
-			var marker3 = new AMap.Marker({
-				position: [114.76035, 30.97055],
-				title: '道达尔能源新洲凤凰加油站',
-				// anchor:'top-right'
+			var marker2 = new AMap.Marker({
+				position: [114.7550, 31.0135],
 			})
+			// var marker3 = new AMap.Marker({
+			// 	position: [114.76035, 30.97055],
+			// 	title: '道达尔能源新洲凤凰加油站',
+			// 	// anchor:'top-right'
+			// })
 
 			//创建 AMap.Icon 实例：
 			const icons = new AMap.Icon({
@@ -148,51 +141,57 @@
 
 			var info1Window = new AMap.InfoWindow({ //创建信息窗体
 				isCustom: true, //使用自定义窗体
-				// content: '<div class="chygch">古建筑东坡街 新时代朝阳广场<br>渡假旅游，休闲住宿</div>', 
-				content: '<div class="xinghuahu"><a href="https://gitee.com/i_wh/document/raw/master/images/朝阳新街.jpg" target="_blank"><img  src="https://gitee.com/i_wh/document/raw/master/images/朝阳新街.jpg"  /></a><div class="xhhcontent">古建筑东坡街 <br>新时代朝阳广场<hr>渡假旅游，休闲住宿</div></div>',
-				//信息窗体的内容可以是任意html片段
-				// offset: new AMap.Pixel(65, -15)
-			});
-			var info2Window = new AMap.InfoWindow({ //创建信息窗体
-				isCustom: true, //使用自定义窗体
-				content: '<div class="xinghuahu"><a href="https://gitee.com/i_wh/document/raw/master/images/杏花村停车场.jpg" target="_blank"><img  src="https://gitee.com/i_wh/document/raw/master/images/杏花村停车场.jpg"  /></a><div class="xhhcontent">杏花湖渡假村<br>渡假旅游，休闲住宿<hr>联系手机: <a href="tel:135****1826">135****1826</a></div></div>',
-				// offset: new AMap.Pixel(-95, -25)
+				content: '<div class="xinghuahu"><a href="./images/杏花村停车场.jpg" target="_blank"><img  src="./images/杏花村停车场.jpg"  /></a><div class="xhhcontent">杏花湖渡假村<br>渡假旅游，休闲住宿<hr>联系手机: <a href="tel:135****1826">135****1826</a></div></div>',
 			});
 
-			var info3Window = new AMap.InfoWindow({ //创建信息窗体
+			var info2Window = new AMap.InfoWindow({ //创建信息窗体
 				isCustom: true, //使用自定义窗体
-				content: '<div class="xinghuahu"><a href="https://gitee.com/i_wh/document/raw/master/images/凤凰加油站.jpg" target="_blank"><img  src="https://gitee.com/i_wh/document/raw/master/images/凤凰加油站.jpg"  /></a><div class="xhhcontent">道达尔能源新洲凤凰加油站<hr>联系手机: <a href="tel:135****1826">135******18</a></div>',
-				// offset: new AMap.Pixel(-95, -25)
+				// content: '<div class="chygch">古建筑东坡街 新时代朝阳广场<br>渡假旅游，休闲住宿</div>', 
+				content: '<div class="xinghuahu"><a href="./images/朝阳新街.jpg" target="_blank"><img  src="./images/朝阳新街.jpg"  /></a><div class="xhhcontent">古建筑东坡街 <br>新时代朝阳广场<hr>渡假旅游，休闲住宿</div></div>',
+				//信息窗体的内容可以是任意html片段
+			});
+			var infoStartWindow = new AMap.InfoWindow({ //创建信息窗体
+				isCustom: true, //使用自定义窗体
+				content: '<div class="xinghuahu"><a href="./images/凤凰加油站.jpg" target="_blank"><img  src="./images/凤凰加油站.jpg"  /></a><div class="xhhcontent">道达尔能源新洲凤凰加油站<hr>联系手机: <a href="tel:135****1826">135******18</a></div>',
+			});
+
+			var infoEndWindow = new AMap.InfoWindow({ //创建信息窗体
+				isCustom: true, //使用自定义窗体
+				content: '<div class="xinghuahu"><a href="./images/耐世特.jpg" target="_blank"><img  src="./images/耐世特.jpg"  /></a><div class="xhhcontent">耐世特汽车<hr>联系手机: <a href="tel:135****1826">135******19</a></div>',
 			});
 
 			var onMarker1Click = function(e) {
-				console.log(e.target)
+				// console.log(e.target)
 				info1Window.open(map, e.target.getPosition()); //打开信息窗体
 				//e.target就是被点击的Marker
 			}
 
 			var onMarker2Click = function(e) {
-				console.log(e)
+				// console.log(e)
 				info2Window.open(map, e.target.getPosition());
 				//e.target就是被点击的Marker
 			}
 
-			var onMarker3Click = function(e) {
-				console.log(e)
-				info3Window.open(map, e.target.getPosition());
-				//e.target就是被点击的Marker
+			var onMarkerStartClick = function(e) {
+				infoStartWindow.open(map, e.target.getPosition());
+			}
+
+			var onMarkerEndClick = function(e) {
+				infoEndWindow.open(map, e.target.getPosition());
 			}
 
 
 			function closeinfowindows() {
 				info1Window.close()
 				info2Window.close()
-				info3Window.close()
+				infoStartWindow.close()
+				infoEndWindow.close()
 			}
 
 			marker1.on('click', onMarker1Click); //绑定click事件
 			marker2.on('click', onMarker2Click);
-			markerstart.on('click', onMarker3Click);
+			markerstart.on('click', onMarkerStartClick);
+			markerend.on('click', onMarkerEndClick);
 		</script>
 
 	</body>
